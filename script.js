@@ -8,6 +8,7 @@ const date = document.getElementById('date')
 const animated_bgs = document.querySelectorAll('.animated-bg')
 const animated_bg_texts = document.querySelectorAll('.animated-bg-text')
 
+
 setTimeout(getData, 2500)
 
 function getData() {
@@ -16,7 +17,14 @@ function getData() {
     excerpt.innerHTML = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. A, suscipit!'
     profile_img.innerHTML = '<img src="https://randomuser.me/api/portraits/women/45.jpg" alt="">'
     authorname.innerHTML = 'Jane Doe'
-    date.innerHTML = 'Feb 8, 2023'
+
+    const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+    const d = new Date();
+    let currentmonth = month[d.getMonth()];
+    let currentday = d.getDate();
+    let currentyear = d.getFullYear();
+
+    date.innerHTML = `${currentmonth} ${currentday}, ${currentyear}`
 
     animated_bgs.forEach((bg) => bg.classList.remove('animated-bg'))
     animated_bg_texts.forEach((text) => text.classList.remove('animated-bg-text'))
